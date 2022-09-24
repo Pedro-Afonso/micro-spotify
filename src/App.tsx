@@ -1,7 +1,10 @@
+import { BrowserRouter } from 'react-router-dom'
+import { AppRoutes } from './routes/AppRoutes'
+
 export const App = () => {
   return (
-    <div>
-      <p>Click on the Vite and React logos to learn more</p>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
