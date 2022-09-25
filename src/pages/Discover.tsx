@@ -1,12 +1,5 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Typography
-} from '@mui/material'
-import { useEffect } from 'react'
+import { Box, Typography } from '@mui/material'
+import { SongCard } from '../shared/components/SongCard'
 import { useGetTopChartsQuery } from '../shared/redux/services/shazamCore'
 
 export const Discover = () => {
@@ -16,5 +9,16 @@ export const Discover = () => {
 
   if (error) return <p>Oops! Ocorreu algum erro...</p>
 
-  return <div>Discover</div>
+  return (
+    <Box>
+      <Box>
+        <Typography variant="h2">Descobrir</Typography>
+      </Box>
+      <Box display="flex" gap={4} flexWrap="wrap">
+        {data?.map(song => (
+          <SongCard key={song.key} song={song} />
+        ))}
+      </Box>
+    </Box>
+  )
 }
