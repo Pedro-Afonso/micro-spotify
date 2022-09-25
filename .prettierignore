@@ -6,3 +6,5 @@ yarn.lock
 .gitignore
 .eslintignore
 coverage
+
+.env
