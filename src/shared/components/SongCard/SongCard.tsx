@@ -1,40 +1,33 @@
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardMedia,
-  Typography,
-  Box,
-  Button
-} from '@mui/material'
+import { Card, CardActions, CardMedia, Typography, Box } from '@mui/material'
 import { IMusic } from '../../redux/models/IMusic'
-import { playPause, setActiveSong } from '../../redux/slices/playerSlice'
-import { useAppDispatch } from '../../redux/store'
+import { PlayPauseCard } from '../PlayPauseButton/PlayPauseButton'
 
 interface ISongCardProps {
   song: IMusic
 }
 
 export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
-  const dispatch = useAppDispatch()
-
-  const handlePlayPauseClick = () => {
-    dispatch(setActiveSong({ song }))
-    dispatch(playPause(true))
-  }
-
   return (
     <Card sx={{ width: 200 }}>
-      <CardActionArea>
+      <Box position="relative">
+        <Box
+          position="absolute"
+          bottom={16}
+          right={16}
+          bgcolor="#c2c2c2"
+          borderRadius="50%"
+        >
+          <PlayPauseCard song={song} />
+        </Box>
+
         <CardMedia
           component="img"
           height="200"
           image={song.images.coverart}
           alt={song.title}
         />
-      </CardActionArea>
+      </Box>
       <CardActions>
-        <Button onClick={handlePlayPauseClick}>Play</Button>
         <Box
           display="flex"
           flexDirection="column"
