@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Typography, Grow } from '@mui/material'
 import { SongCard } from '../shared/components/SongCard'
 import { useGetTopChartsQuery } from '../shared/redux/services/shazamCore'
 
@@ -14,11 +14,13 @@ export const Discover = () => {
       <Box>
         <Typography variant="h2">Descobrir</Typography>
       </Box>
-      <Box display="flex" gap={4} flexWrap="wrap">
-        {data?.map(song => (
-          <SongCard key={song.key} song={song} />
-        ))}
-      </Box>
+      <Grow in={!!data} timeout={2000}>
+        <Box display="flex" gap={4} flexWrap="wrap">
+          {data?.map(song => (
+            <SongCard key={song.key} song={song} />
+          ))}
+        </Box>
+      </Grow>
     </Box>
   )
 }
