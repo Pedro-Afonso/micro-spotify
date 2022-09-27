@@ -1,6 +1,6 @@
 import { Box, Card, Typography, CardMedia } from '@mui/material'
 import { IMusic } from '../../redux/models/IMusic'
-import { PlayPauseCard } from '../PlayPauseButton/PlayPauseButton'
+import { PlayPauseCard } from '../PlayPauseButton'
 
 interface ITopChartsCardProps {
   position: number
