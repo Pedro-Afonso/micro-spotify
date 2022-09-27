@@ -1,5 +1,5 @@
 import { Box, Typography, Grow } from '@mui/material'
-import { SongCard } from '../shared/components/SongCard'
+import { SongCard } from '../shared/components'
 import { useGetTopChartsQuery } from '../shared/redux/services/shazamCore'
 
 export const Discover = () => {

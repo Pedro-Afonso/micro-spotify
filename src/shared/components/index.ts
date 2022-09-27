@@ -1,2 +1,6 @@
 export * from './MusicPlayer'
 export * from './Sidebar'
+export * from './DetailsHeader'
+export * from './PlayPauseButton'
+export * from './SongCard'
+export * from './TopPlay'
