@@ -17,7 +17,7 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
   const { activeSong, isPlaying } = useAppSelector(state => state.player)
   const dispatch = useAppDispatch()
 
-  const [volume, setVolume] = useState(0)
+  const [volume, setVolume] = useState(1)
   const [repeat] = useState(false)
   const [seekTime, setSeekTime] = useState(0)
   const [duration, setDuration] = useState(0)
