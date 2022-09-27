@@ -25,13 +25,15 @@ export const Player: React.FC<IPlayerProps> = ({
 }) => {
   const audioRef = useRef<HTMLAudioElement>(null)
 
-  if (audioRef.current) {
-    if (isPlaying) {
-      audioRef.current.play()
-    } else {
-      audioRef.current.pause()
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play()
+      } else {
+        audioRef.current.pause()
+      }
     }
-  }
+  }, [isPlaying])
 
   useEffect(() => {
     if (audioRef.current) {
