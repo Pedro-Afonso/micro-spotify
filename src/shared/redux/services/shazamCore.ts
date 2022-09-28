@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { TCountry } from '../models/TCountry'
 import { IArtistDetails } from '../models/IArtistDetails'
 import { IMusic } from '../models/IMusic'
 import { IMusicDetails } from '../models/IMusicDetails'
@@ -25,6 +26,9 @@ export const shazamCoreApi = createApi({
     }),
     getArtistDetails: builder.query<IArtistDetails, { artistid?: string }>({
       query: ({ artistid }) => `/artists/details?artist_id=${artistid}`
+    }),
+    getSongByCountry: builder.query<IMusic[], TCountry>({
+      query: countryCode => `/charts/country?country_code=${countryCode}`
     })
   })
 })
@@ -33,5 +37,6 @@ export const {
   useGetTopChartsQuery,
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
-  useGetArtistDetailsQuery
+  useGetArtistDetailsQuery,
+  useGetSongByCountryQuery
 } = shazamCoreApi
