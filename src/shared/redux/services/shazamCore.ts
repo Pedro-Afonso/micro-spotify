@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { IArtistDetails } from '../models/IArtistDetails'
 import { IMusic } from '../models/IMusic'
 import { IMusicDetails } from '../models/IMusicDetails'
 
@@ -21,6 +22,9 @@ export const shazamCoreApi = createApi({
     }),
     getSongRelated: builder.query<IMusic[], { songid?: string }>({
       query: ({ songid }) => `/tracks/related?track_id=${songid}`
+    }),
+    getArtistDetails: builder.query<IArtistDetails, { artistid?: string }>({
+      query: ({ artistid }) => `/artists/details?artist_id=${artistid}`
     })
   })
 })
@@ -28,5 +32,6 @@ export const shazamCoreApi = createApi({
 export const {
   useGetTopChartsQuery,
   useGetSongDetailsQuery,
-  useGetSongRelatedQuery
+  useGetSongRelatedQuery,
+  useGetArtistDetailsQuery
 } = shazamCoreApi
