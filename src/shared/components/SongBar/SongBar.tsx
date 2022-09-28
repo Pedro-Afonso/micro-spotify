@@ -13,12 +13,18 @@ export const SongBar: React.FC<ISongBarProps> = ({ song, position }) => {
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box display="flex" alignItems="center">
           <Typography>{position + 1}.</Typography>
-          <CardMedia
-            component="img"
-            height="48"
-            image={song.images.coverart}
-            alt={song.title}
-          />
+          <Box>
+            <CardMedia
+              component="img"
+              height="48"
+              image={song.images.coverart}
+              alt={song.title}
+            />
+          </Box>
+          <Box marginLeft={1}>
+            <Typography>{song.title}</Typography>
+            <Typography>{song.subtitle}</Typography>
+          </Box>
         </Box>
 
         <PlayPauseCard song={song} />
