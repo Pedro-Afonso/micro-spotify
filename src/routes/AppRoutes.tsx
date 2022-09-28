@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Discover, SongDetails } from '../pages'
+import { Discover, SongDetails, ArtistDetails } from '../pages'
 import { useSidebarContext } from '../shared/context/SidebarContext'
 
 export const AppRoutes = () => {
@@ -14,6 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Discover />} />
       <Route path="/songs/:songid" element={<SongDetails />} />
+      <Route path="/artists/:artistid" element={<ArtistDetails />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
