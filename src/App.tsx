@@ -1,5 +1,5 @@
 import { AppSidebarProvider } from './shared/context/SidebarContext'
-import { Sidebar, MusicPlayer } from './shared/components'
+import { Sidebar, MusicPlayer, SearchBar } from './shared/components'
 import { BrowserRouter } from 'react-router-dom'
 import { AppRoutes } from './routes/AppRoutes'
 
@@ -17,7 +17,9 @@ export const App = () => {
           <Sidebar>
             <MusicPlayer>
               <TopPlay>
-                <AppRoutes />
+                <SearchBar>
+                  <AppRoutes />
+                </SearchBar>
               </TopPlay>
             </MusicPlayer>
           </Sidebar>
