@@ -8,6 +8,7 @@ import {
   TopCharts,
   TopArtists
 } from '../pages'
+import { Search } from '../pages/Search'
 import { useSidebarContext } from '../shared/context/SidebarContext'
 
 export const AppRoutes = () => {
@@ -29,6 +30,7 @@ export const AppRoutes = () => {
       <Route path="/around-you" element={<AroundYou />} />
       <Route path="/top-artists" element={<TopArtists />} />
       <Route path="/songs/:songid" element={<SongDetails />} />
+      <Route path="/search/:searchTerm" element={<Search />} />
       <Route path="/artists/:artistid" element={<ArtistDetails />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
