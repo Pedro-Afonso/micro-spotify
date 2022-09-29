@@ -3,6 +3,7 @@ import { TCountry } from '../models/TCountry'
 import { IArtistDetails } from '../models/IArtistDetails'
 import { IMusic } from '../models/IMusic'
 import { IMusicDetails } from '../models/IMusicDetails'
+import { ISearch } from '../models/ISearch'
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',
@@ -29,6 +30,9 @@ export const shazamCoreApi = createApi({
     }),
     getSongByCountry: builder.query<IMusic[], TCountry>({
       query: countryCode => `/charts/country?country_code=${countryCode}`
+    }),
+    getSongsBySearch: builder.query<ISearch, string | undefined>({
+      query: searchTerm => `/search/multi?search_type=SONGS&query=${searchTerm}`
     })
   })
 })
@@ -38,5 +42,6 @@ export const {
   useGetSongDetailsQuery,
   useGetSongRelatedQuery,
   useGetArtistDetailsQuery,
-  useGetSongByCountryQuery
+  useGetSongByCountryQuery,
+  useGetSongsBySearchQuery
 } = shazamCoreApi
