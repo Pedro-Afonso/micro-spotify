@@ -5,7 +5,8 @@ import {
   SongDetails,
   ArtistDetails,
   AroundYou,
-  TopCharts
+  TopCharts,
+  TopArtists
 } from '../pages'
 import { useSidebarContext } from '../shared/context/SidebarContext'
 
@@ -16,7 +17,8 @@ export const AppRoutes = () => {
     setSidebarOptions([
       { path: '/', label: 'Descobrir' },
       { path: '/around-you', label: 'Radar' },
-      { path: '/top-charts', label: 'Top Charts' }
+      { path: '/top-charts', label: 'Top Charts' },
+      { path: '/top-artists', label: 'Top Artistas' }
     ])
   }, [setSidebarOptions])
 
@@ -25,6 +27,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<Discover />} />
       <Route path="/top-charts" element={<TopCharts />} />
       <Route path="/around-you" element={<AroundYou />} />
+      <Route path="/top-artists" element={<TopArtists />} />
       <Route path="/songs/:songid" element={<SongDetails />} />
       <Route path="/artists/:artistid" element={<ArtistDetails />} />
       <Route path="*" element={<Navigate to="/" />} />
