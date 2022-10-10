@@ -16,7 +16,7 @@ export const AppRoutes = () => {
 
   useEffect(() => {
     setSidebarOptions([
-      { path: '/', label: 'Descobrir' },
+      { path: '/home', label: 'Descobrir' },
       { path: '/around-you', label: 'Radar' },
       { path: '/top-charts', label: 'Top Charts' },
       { path: '/top-artists', label: 'Top Artistas' }
@@ -25,14 +25,14 @@ export const AppRoutes = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Discover />} />
+      <Route path="/home" element={<Discover />} />
       <Route path="/top-charts" element={<TopCharts />} />
       <Route path="/around-you" element={<AroundYou />} />
       <Route path="/top-artists" element={<TopArtists />} />
       <Route path="/songs/:songid" element={<SongDetails />} />
       <Route path="/search/:searchTerm" element={<Search />} />
       <Route path="/artists/:artistid" element={<ArtistDetails />} />
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="*" element={<Navigate to="/home" />} />
     </Routes>
   )
 }
