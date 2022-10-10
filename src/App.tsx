@@ -7,24 +7,27 @@ import { store } from './shared/redux/store'
 import { Provider } from 'react-redux'
 import { CssBaseline } from '@mui/material'
 import { TopPlay } from './shared/components/TopPlay/TopPlay'
+import { AppThemeProvider } from './shared/context/ThemeContext'
 
 export const App = () => {
   return (
     <BrowserRouter>
-      <CssBaseline />
-      <Provider store={store}>
-        <AppSidebarProvider>
-          <Sidebar>
-            <MusicPlayer>
-              <TopPlay>
-                <SearchBar>
-                  <AppRoutes />
-                </SearchBar>
-              </TopPlay>
-            </MusicPlayer>
-          </Sidebar>
-        </AppSidebarProvider>
-      </Provider>
+      <AppThemeProvider>
+        <CssBaseline />
+        <Provider store={store}>
+          <AppSidebarProvider>
+            <Sidebar>
+              <MusicPlayer>
+                <TopPlay>
+                  <SearchBar>
+                    <AppRoutes />
+                  </SearchBar>
+                </TopPlay>
+              </MusicPlayer>
+            </Sidebar>
+          </AppSidebarProvider>
+        </Provider>
+      </AppThemeProvider>
     </BrowserRouter>
   )
 }
