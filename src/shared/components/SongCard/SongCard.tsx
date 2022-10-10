@@ -8,7 +8,14 @@ interface ISongCardProps {
 
 export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
   return (
-    <Card sx={{ width: 200 }}>
+    <Card
+      sx={{
+        maxWidth: 230,
+        flexBasis: 200,
+        flexShrink: 1,
+        flexGrow: 1
+      }}
+    >
       <Box position="relative">
         <Box
           position="absolute"

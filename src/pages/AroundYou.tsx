@@ -15,7 +15,12 @@ export const AroundYou = () => {
         <Typography variant="h2">Radar</Typography>
       </Box>
       <Grow in={!!data} timeout={2000}>
-        <Box display="flex" gap={4} flexWrap="wrap">
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          gap={2}
+          flexWrap="wrap"
+        >
           {data?.map(song => (
             <SongCard key={song.key} song={song} />
           ))}

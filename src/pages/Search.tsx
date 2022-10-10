@@ -18,7 +18,12 @@ export const Search = () => {
         <Typography variant="h2">Descobrir</Typography>
       </Box>
       <Grow in={!!data?.tracks} timeout={2000}>
-        <Box display="flex" gap={4} flexWrap="wrap">
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          gap={2}
+          flexWrap="wrap"
+        >
           {data?.tracks?.hits.map(({ track: song }, key) => (
             <SongCard key={key} song={song} />
           ))}

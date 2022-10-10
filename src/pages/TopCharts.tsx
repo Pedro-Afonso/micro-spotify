@@ -15,7 +15,12 @@ export const TopCharts = () => {
         <Typography variant="h2">Top Charts</Typography>
       </Box>
       <Grow in={!!data} timeout={2000}>
-        <Box display="flex" gap={4} flexWrap="wrap">
+        <Box
+          display="flex"
+          gap={2}
+          justifyContent="space-around"
+          flexWrap="wrap"
+        >
           {data?.map(song => (
             <SongCard key={song.key} song={song} />
           ))}
