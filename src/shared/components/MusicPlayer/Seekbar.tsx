@@ -4,18 +4,14 @@ interface ISeekbarProps {
   value: number
   min: number
   max: number
-  /* onInput: number */
   setSeekTime: (value: number) => void
-  /* appTime: number */
 }
 
 export const Seekbar: React.FC<ISeekbarProps> = ({
   value,
   min,
   max,
-  /* onInput, */
   setSeekTime
-  /* appTime */
 }) => {
   const formatDuration = (value: number) => {
     const minute = Math.floor(value / 60)
@@ -26,7 +22,7 @@ export const Seekbar: React.FC<ISeekbarProps> = ({
   return (
     <Box width={'75%'}>
       <Slider
-        aria-label="time-indicator"
+        aria-label="Indicador de tempo"
         size="small"
         value={value}
         min={min}
@@ -35,8 +31,10 @@ export const Seekbar: React.FC<ISeekbarProps> = ({
         onChange={(_, newValue) => setSeekTime(newValue as number)}
       />
       <Box display="flex" alignItems="center" justifyContent="space-between">
-        <Typography fontSize={'0.75rem'}>{formatDuration(value)}</Typography>
-        <Typography fontSize={'0.75rem'}>
+        <Typography aria-label="Duração" fontSize={'0.75rem'}>
+          {formatDuration(value)}
+        </Typography>
+        <Typography aria-label="Tempo restante" fontSize={'0.75rem'}>
           -{formatDuration(max - value)}
         </Typography>
       </Box>
