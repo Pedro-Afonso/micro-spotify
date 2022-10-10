@@ -12,7 +12,7 @@ export const SongBar: React.FC<ISongBarProps> = ({ song, position }) => {
     <Card>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Box display="flex" alignItems="center">
-          <Typography>{position + 1}.</Typography>
+          <Typography marginX={0.5}>{position + 1}.</Typography>
           <Box>
             <CardMedia
               component="img"
@@ -22,7 +22,9 @@ export const SongBar: React.FC<ISongBarProps> = ({ song, position }) => {
             />
           </Box>
           <Box marginLeft={1}>
-            <Typography>{song.title}</Typography>
+            <Typography variant="h3" fontSize="1rem">
+              {song.title}
+            </Typography>
             <Typography>{song.subtitle}</Typography>
           </Box>
         </Box>
