@@ -37,7 +37,6 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
         alignItems="center"
         paddingX={4}
         component={Paper}
-        sx={{ backgroundColor: '#c2c2c2' }}
         position="fixed"
         bottom={0}
         left={theme.spacing(28)}
