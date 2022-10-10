@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { IMusic } from '../../redux/models/IMusic'
 import { SongBar } from '../SongBar'
 
@@ -13,9 +14,16 @@ export const TopChartsPreview: React.FC<ITopChartsPreviewProps> = ({
 }) => {
   return (
     <Box>
-      <Box display="flex" justifyContent="space-between" paddingX={1}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        paddingX={1}
+        paddingY={1}
+      >
         <Typography>Top Charts</Typography>
-        <Typography>ver mais</Typography>
+        <Link to="/top-charts">
+          <Typography>ver mais</Typography>
+        </Link>
       </Box>
       <Box
         display="flex"

@@ -1,4 +1,5 @@
 import { Avatar, Box, Typography } from '@mui/material'
+import { Link } from 'react-router-dom'
 import { IMusic } from '../../redux/models/IMusic'
 
 interface ITopArtistsPreviewProps {
@@ -12,9 +13,16 @@ export const TopArtistsPreview: React.FC<ITopArtistsPreviewProps> = ({
 }) => {
   return (
     <Box>
-      <Box display="flex" justifyContent="space-between" paddingX={1}>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        paddingX={1}
+        paddingY={1}
+      >
         <Typography>Top Artistas</Typography>
-        <Typography>ver mais</Typography>
+        <Link to="/top-artists">
+          <Typography>ver mais</Typography>
+        </Link>
       </Box>
       <Box display="flex" justifyContent="center">
         <Box
