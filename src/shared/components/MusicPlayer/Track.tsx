@@ -14,10 +14,10 @@ export const Track: React.FC<ITrackProps> = ({ activeSong }) => {
         alt={activeSong?.title}
       />
       <Box>
-        <Typography fontSize="small">
+        <Typography aria-label="Título" fontSize="small">
           {activeSong?.title ? activeSong.title : '...'}
         </Typography>
-        <Typography fontSize="small">
+        <Typography aria-label="Artista" fontSize="small">
           {activeSong?.subtitle ? activeSong.subtitle : '...'}
         </Typography>
       </Box>
