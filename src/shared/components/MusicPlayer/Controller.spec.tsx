@@ -7,8 +7,7 @@ describe('Controller component', () => {
 
   it('should render the component with play button element', () => {
     const props = {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      handlePlayPause: () => {},
+      handlePlayPause: vi.fn,
       isPlaying: false
     }
     render(<Controller {...props} />)
@@ -22,8 +21,7 @@ describe('Controller component', () => {
 
   it('should render the component with pause button element', () => {
     const props = {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      handlePlayPause: () => {},
+      handlePlayPause: vi.fn,
       isPlaying: true
     }
     render(<Controller {...props} />)
@@ -37,7 +35,6 @@ describe('Controller component', () => {
 
   it('should test handlePlayPause function', () => {
     const props = {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
       handlePlayPause: vi.fn(),
       isPlaying: true
     }

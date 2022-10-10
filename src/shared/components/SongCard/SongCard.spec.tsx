@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { IMusic } from '../../redux/models/IMusic'
 import { SongCard } from './SongCard'
+
+vi.mock('../PlayPauseButton', () => ({
+  PlayPauseCard: () => {
+    return <div data-testid="PlayPauseCard"></div>
+  }
+}))
 
 describe('SongCard component', () => {
   const song = {
@@ -10,27 +16,36 @@ describe('SongCard component', () => {
     subtitle: 'José'
   } as IMusic
 
-  it('should render the component with alt text', () => {
+  it('should render with PlayPauseCard component', () => {
     render(<SongCard song={song} />)
 
-    const altText = screen.getByRole('img')
+    const PlayPauseCard = screen.getByTestId('PlayPauseCard')
 
-    expect(altText).toBeInTheDocument()
+    expect(PlayPauseCard).toBeInTheDocument()
+  })
+
+  it('should render an image element with alt and src attributes', () => {
+    render(<SongCard song={song} />)
+
+    const img = screen.getByRole('img')
+
+    expect(img).toHaveAttribute('src', song.images.coverart)
+    expect(img).toHaveAttribute('alt', song.title)
   })
 
   it('should render the component with title element', () => {
     render(<SongCard song={song} />)
 
-    const title = screen.getByRole('heading', { name: song.title })
+    const title = screen.getByRole('heading', { level: 3 })
 
-    expect(title).toBeInTheDocument()
+    expect(title).toHaveTextContent(song.title)
   })
 
   it('should render the component with subtitle element', () => {
     render(<SongCard song={song} />)
 
-    const subtitle = screen.getByRole('heading', { name: song.subtitle })
+    const subtitle = screen.getByRole('heading', { level: 4 })
 
-    expect(subtitle).toBeInTheDocument()
+    expect(subtitle).toHaveTextContent(song.subtitle)
   })
 })
