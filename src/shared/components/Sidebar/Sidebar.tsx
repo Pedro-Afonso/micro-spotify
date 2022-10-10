@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  Typography,
   useMediaQuery,
   useTheme
 } from '@mui/material'
@@ -15,16 +16,10 @@ import { useSidebarContext } from '../../context/SidebarContext'
 interface IListItemLinkProps {
   to: string
   label: string
-  /* icon: string */
   onClick: (() => void) | undefined
 }
 
-const ListItemLink: React.FC<IListItemLinkProps> = ({
-  to,
-  label,
-  /* icon, */
-  onClick
-}) => {
+const ListItemLink: React.FC<IListItemLinkProps> = ({ to, label, onClick }) => {
   const navigate = useNavigate()
   const resolvedPath = useResolvedPath(to)
   const match = useMatch({ path: resolvedPath.pathname, end: false })
@@ -37,9 +32,6 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({
   return (
     <ListItem>
       <ListItemButton selected={!!match} onClick={handleClick}>
-        {/*       <ListItemIcon>
-        <Icon>{icon}</Icon>
-      </ListItemIcon> */}
         <ListItemText primary={label}></ListItemText>
       </ListItemButton>
     </ListItem>
@@ -54,8 +46,6 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down('sm'))
 
   const { isSidebarOpen, toggleSidebar, sidebarOptions } = useSidebarContext()
-
-  /* const { themeName, toggleTheme } = useAppThemeContext() */
 
   return (
     <>
@@ -81,6 +71,9 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
               sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
               src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d"
             /> */}
+            <Typography component="h1" fontSize={32} fontWeight={700}>
+              Micro Spotify
+            </Typography>
           </Box>
           <Divider />
           <Box flex={1}>
@@ -96,25 +89,13 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
               ))}
             </List>
           </Box>
-          {/*           <Box>
-            <List component="nav">
-              <ListItemButton onClick={toggleTheme}>
-                <ListItemIcon>
-                  {themeName === 'dark' ? <LightMode /> : <DarkMode />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={
-                    themeName === 'dark'
-                      ? 'Acender as luzes'
-                      : 'Desligar as luzes'
-                  }
-                ></ListItemText>
-              </ListItemButton>
-            </List>
-          </Box> */}
         </Box>
       </Drawer>
-      <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
+      <Box
+        height="100vh"
+        paddingX="1rem"
+        marginLeft={smDown ? 0 : theme.spacing(28)}
+      >
         {children}
       </Box>
     </>
