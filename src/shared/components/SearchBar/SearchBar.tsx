@@ -30,7 +30,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ children }) => {
 
           alignItems: 'center',
           width: 'auto',
-          m: '1rem'
+          my: '1rem'
         }}
         onSubmit={handleSubmit}
       >
