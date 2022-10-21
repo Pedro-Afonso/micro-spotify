@@ -18,11 +18,11 @@ export const App = () => {
           <AppSidebarProvider>
             <Sidebar>
               <MusicPlayer>
-                <TopPlay>
-                  <SearchBar>
+                <SearchBar>
+                  <TopPlay>
                     <AppRoutes />
-                  </SearchBar>
-                </TopPlay>
+                  </TopPlay>
+                </SearchBar>
               </MusicPlayer>
             </Sidebar>
           </AppSidebarProvider>
