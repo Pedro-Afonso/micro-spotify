@@ -23,15 +23,29 @@ export const DetailsHeader: React.FC<IDetailsHeaderProps> = ({
             ? artistData?.artists[artistid].attributes?.artwork?.url
                 .replace('{w}', '500')
                 .replace('{h}', '500')
-            : songData?.images.coverart
+            : songData?.images?.coverart
         }
       />
       <Box>
-        <Typography>{songData?.title}</Typography>
-        <Link to={`/artists/${songData?.artists[0]?.adamid}`}>
-          <Typography> {songData?.subtitle}</Typography>
+        <Typography>
+          {artistid
+            ? artistData?.artists[artistid].attributes.name
+            : songData?.title}
+        </Typography>
+        <Link
+          to={
+            artistid
+              ? `/artists/${songData?.artists[0]?.adamid}`
+              : `/artists/${songData?.artists[0]?.adamid}`
+          }
+        >
+          <Typography>
+            {artistid ? songData?.subtitle : songData?.subtitle}
+          </Typography>
         </Link>
-        <Typography> {songData?.genres?.primary}</Typography>
+        <Typography>
+          {artistid ? songData?.genres?.primary : songData?.genres?.primary}
+        </Typography>
       </Box>
     </Box>
   )
