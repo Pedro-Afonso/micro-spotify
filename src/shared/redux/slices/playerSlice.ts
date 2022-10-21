@@ -1,22 +1,21 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IMusic } from '../models/IMusic'
+import { TGenre } from '../models/TGenre'
 
 interface IPlayerState {
   currentSongs: IMusic[]
-  currentIndex: number
   isActive: boolean
   isPlaying: boolean
   activeSong: IMusic | null
-  genreListId: string
+  genreListId: TGenre | null
 }
 
 const initialState: IPlayerState = {
   currentSongs: [],
-  currentIndex: 0,
   isActive: false,
   isPlaying: false,
   activeSong: null,
-  genreListId: ''
+  genreListId: null
 }
 
 const playerSlice = createSlice({
@@ -30,10 +29,14 @@ const playerSlice = createSlice({
 
     playPause: (state, action: PayloadAction<boolean>) => {
       state.isPlaying = action.payload
+    },
+
+    setGenreListId: (state, action: PayloadAction<TGenre>) => {
+      state.genreListId = action.payload
     }
   }
 })
 
-export const { setActiveSong, playPause } = playerSlice.actions
+export const { setActiveSong, playPause, setGenreListId } = playerSlice.actions
 
 export default playerSlice.reducer
