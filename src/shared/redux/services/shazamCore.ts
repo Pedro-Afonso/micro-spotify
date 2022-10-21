@@ -4,6 +4,7 @@ import { IArtistDetails } from '../models/IArtistDetails'
 import { IMusic } from '../models/IMusic'
 import { IMusicDetails } from '../models/IMusicDetails'
 import { ISearch } from '../models/ISearch'
+import { TGenre } from '../models/TGenre'
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',
@@ -18,6 +19,9 @@ export const shazamCoreApi = createApi({
   endpoints: builder => ({
     getTopCharts: builder.query<IMusic[], void>({
       query: () => '/charts/world'
+    }),
+    getSongsByGenre: builder.query<IMusic[], TGenre>({
+      query: genre => `/charts/genre-world?genre_code=${genre}`
     }),
     getSongDetails: builder.query<IMusicDetails, { songid?: string }>({
       query: ({ songid }) => `/tracks/details?track_id=${songid}`
@@ -43,5 +47,6 @@ export const {
   useGetSongRelatedQuery,
   useGetArtistDetailsQuery,
   useGetSongByCountryQuery,
-  useGetSongsBySearchQuery
+  useGetSongsBySearchQuery,
+  useGetSongsByGenreQuery
 } = shazamCoreApi
