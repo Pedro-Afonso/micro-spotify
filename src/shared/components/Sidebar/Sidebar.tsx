@@ -44,6 +44,7 @@ interface ISidebarProps {
 export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
   const theme = useTheme()
   const smDown = useMediaQuery(theme.breakpoints.down('sm'))
+  const mdDown = useMediaQuery(theme.breakpoints.down('md'))
 
   const { isSidebarOpen, toggleSidebar, sidebarOptions } = useSidebarContext()
 
@@ -51,7 +52,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
     <>
       <Drawer
         open={isSidebarOpen}
-        variant={smDown ? 'temporary' : 'permanent'}
+        variant={mdDown ? 'temporary' : 'permanent'}
         onClose={toggleSidebar}
       >
         <Box
@@ -67,10 +68,6 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
             alignItems="center"
             justifyContent="center"
           >
-            {/* <Avatar
-              sx={{ height: theme.spacing(12), width: theme.spacing(12) }}
-              src="https://i.guim.co.uk/img/media/26392d05302e02f7bf4eb143bb84c8097d09144b/446_167_3683_2210/master/3683.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=49ed3252c0b2ffb49cf8b508892e452d"
-            /> */}
             <Typography component="h1" fontSize={32} fontWeight={700}>
               Micro Spotify
             </Typography>
@@ -81,7 +78,6 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
               {sidebarOptions.map(sidebarOption => (
                 <ListItemLink
                   key={sidebarOption.path}
-                  /* icon={sidebarOption.icon} */
                   label={sidebarOption.label}
                   to={sidebarOption.path}
                   onClick={smDown ? toggleSidebar : undefined}
@@ -94,7 +90,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
       <Box
         height="100vh"
         paddingX="1rem"
-        marginLeft={smDown ? 0 : theme.spacing(28)}
+        marginLeft={mdDown ? 0 : theme.spacing(28)}
       >
         {children}
       </Box>

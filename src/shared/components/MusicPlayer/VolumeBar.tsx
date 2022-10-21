@@ -17,7 +17,12 @@ export const VolumeBar: React.FC<IVolumeBarProps> = ({
 }) => {
   return (
     <Box flex={1} sx={{ width: 200 }}>
-      <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
+      <Stack
+        spacing={{ sx: 0, md: 2 }}
+        direction={{ sx: 'column', md: 'row' }}
+        sx={{ mb: 1 }}
+        alignItems="center"
+      >
         <IconButton aria-label="Mínimo" onClick={() => setVolume(0)}>
           <VolumeDown />
         </IconButton>

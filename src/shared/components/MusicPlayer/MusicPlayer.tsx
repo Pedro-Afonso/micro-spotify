@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Box, Paper, useTheme } from '@mui/material'
+import { Box, Paper, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
 import { playPause } from '../../redux/slices/playerSlice'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
@@ -23,11 +23,13 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
   const [duration, setDuration] = useState(0)
   const [appTime, setAppTime] = useState(0)
 
+  const theme = useTheme()
+  const smUp = useMediaQuery(theme.breakpoints.up('sm'))
+
   const handlePlayPause = () => {
     dispatch(playPause(!isPlaying))
   }
 
-  const theme = useTheme()
   return (
     <>
       <Box paddingBottom={theme.spacing(14)}>{children}</Box>
@@ -39,7 +41,7 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
         component={Paper}
         position="fixed"
         bottom={0}
-        left={theme.spacing(28)}
+        left={{ xs: 0, md: theme.spacing(28) }}
         right={0}
         height={theme.spacing(14)}
       >
@@ -63,7 +65,9 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
             setSeekTime={setSeekTime}
           />
         </Box>
-        <VolumeBar setVolume={setVolume} value={volume} max={1} min={0} />
+        {smUp && (
+          <VolumeBar setVolume={setVolume} value={volume} max={1} min={0} />
+        )}
       </Box>
     </>
   )

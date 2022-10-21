@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from '@mui/material'
+import { Avatar, Box, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { IMusic } from '../../redux/models/IMusic'
 
@@ -11,6 +11,9 @@ export const TopArtistsPreview: React.FC<ITopArtistsPreviewProps> = ({
   data,
   length
 }) => {
+  const theme = useTheme()
+  const smUp = useMediaQuery(theme.breakpoints.up('sm'))
+
   return (
     <Box>
       <Box
@@ -34,7 +37,12 @@ export const TopArtistsPreview: React.FC<ITopArtistsPreviewProps> = ({
         >
           {data.slice(0, length).map(song => (
             <Avatar
-              sx={{ width: '6rem', height: '6rem' }}
+              component={Link}
+              to={`/artists/${song.artists[0].adamid}`}
+              sx={[
+                { width: '4rem', height: '4rem' },
+                smUp && { width: '6rem', height: '6rem' }
+              ]}
               key={song.key}
               src={song.images.background}
             />

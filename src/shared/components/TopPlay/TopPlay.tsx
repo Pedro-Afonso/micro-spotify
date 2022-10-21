@@ -10,17 +10,17 @@ interface ITopPlayProps {
 export const TopPlay: React.FC<ITopPlayProps> = ({ children }) => {
   const { data, isFetching, error } = useGetTopChartsQuery()
   const theme = useTheme()
+
   return (
     <>
       <Box
         display="flex"
         flexDirection="column"
-        position="fixed"
+        position={{ lg: 'fixed', sx: 'static' }}
         right={0}
         top={0}
         paddingY={1}
-        /* bottom={theme.spacing(14)} */
-        width={theme.spacing(50)}
+        width={{ sx: 'auto', lg: theme.spacing(50) }}
       >
         {!isFetching && !error && data && (
           <>
@@ -29,7 +29,7 @@ export const TopPlay: React.FC<ITopPlayProps> = ({ children }) => {
           </>
         )}
       </Box>
-      <Box marginRight={theme.spacing(50)}>{children}</Box>
+      <Box>{children}</Box>
     </>
   )
 }
