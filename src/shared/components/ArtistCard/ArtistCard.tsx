@@ -1,18 +1,14 @@
 import { Card, CardMedia, CardActionArea, Typography, Box } from '@mui/material'
+
 import { IMusic } from '../../redux/models/IMusic'
 
 interface IArtistCardProps {
   song: IMusic
-  handleNavigate: (song: IMusic) => void
+  navigate: (value: string) => void
 }
 
-export const ArtistCard: React.FC<IArtistCardProps> = ({
-  song,
-  handleNavigate
-}) => {
-  const handleOnClick = () => {
-    handleNavigate(song)
-  }
+export const ArtistCard: React.FC<IArtistCardProps> = ({ song, navigate }) => {
+  if (!song?.images?.background) return <></>
 
   return (
     <Card
@@ -23,12 +19,14 @@ export const ArtistCard: React.FC<IArtistCardProps> = ({
         flexGrow: 1
       }}
     >
-      <CardActionArea onClick={handleOnClick}>
+      <CardActionArea
+        onClick={() => navigate(`/artists/${song.artists[0].adamid}`)}
+      >
         <CardMedia
           component="img"
           height="max-content"
-          image={song.images.background}
-          alt={song.subtitle}
+          image={song?.images?.background}
+          alt={song?.subtitle}
         />
       </CardActionArea>
 
@@ -40,7 +38,7 @@ export const ArtistCard: React.FC<IArtistCardProps> = ({
         overflow="hidden"
       >
         <Typography variant="h3" fontSize={14} whiteSpace="nowrap">
-          {song.subtitle}
+          {song?.subtitle}
         </Typography>
       </Box>
     </Card>

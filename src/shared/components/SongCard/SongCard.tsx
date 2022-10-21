@@ -1,12 +1,22 @@
-import { Card, CardActions, CardMedia, Typography, Box } from '@mui/material'
+import {
+  Card,
+  CardActions,
+  CardMedia,
+  Typography,
+  Box,
+  CardActionArea
+} from '@mui/material'
 import { IMusic } from '../../redux/models/IMusic'
 import { PlayPauseCard } from '../PlayPauseButton'
 
 interface ISongCardProps {
   song: IMusic
+  navigate: (value: string) => void
 }
 
-export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
+export const SongCard: React.FC<ISongCardProps> = ({ song, navigate }) => {
+  if (!song?.images?.coverart) return <></>
+
   return (
     <Card
       sx={{
@@ -17,6 +27,14 @@ export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
       }}
     >
       <Box position="relative">
+        <CardActionArea onClick={() => navigate(`/songs/${song?.key}`)}>
+          <CardMedia
+            component="img"
+            height="200"
+            image={song?.images?.coverart}
+            alt={song?.title}
+          />
+        </CardActionArea>
         <Box
           position="absolute"
           bottom={16}
@@ -26,13 +44,6 @@ export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
         >
           <PlayPauseCard song={song} />
         </Box>
-
-        <CardMedia
-          component="img"
-          height="200"
-          image={song.images.coverart}
-          alt={song.title}
-        />
       </Box>
       <CardActions>
         <Box
@@ -46,11 +57,19 @@ export const SongCard: React.FC<ISongCardProps> = ({ song }) => {
             fontSize={14}
             fontWeight={600}
             whiteSpace="nowrap"
+            sx={{ cursor: 'pointer' }}
+            onClick={() => navigate(`/songs/${song?.key}`)}
           >
-            {song.title}
+            {song?.title}
           </Typography>
-          <Typography variant="h4" fontSize={14} whiteSpace="nowrap">
-            {song.subtitle}
+          <Typography
+            variant="h4"
+            fontSize={14}
+            whiteSpace="nowrap"
+            sx={{ cursor: 'pointer' }}
+            onClick={() => navigate(`/artists/${song.artists[0].adamid}`)}
+          >
+            {song?.subtitle}
           </Typography>
         </Box>
       </CardActions>

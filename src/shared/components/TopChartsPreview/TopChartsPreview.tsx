@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IMusic } from '../../redux/models/IMusic'
 import { SongBar } from '../SongBar'
 
@@ -12,6 +12,8 @@ export const TopChartsPreview: React.FC<ITopChartsPreviewProps> = ({
   data,
   length
 }) => {
+  const navigate = useNavigate()
+
   return (
     <Box>
       <Box
@@ -33,7 +35,7 @@ export const TopChartsPreview: React.FC<ITopChartsPreviewProps> = ({
         paddingX={1}
       >
         {data.slice(0, length).map((song, key) => (
-          <SongBar key={key} position={key} song={song} />
+          <SongBar key={key} position={key} song={song} navigate={navigate} />
         ))}
       </Box>
     </Box>

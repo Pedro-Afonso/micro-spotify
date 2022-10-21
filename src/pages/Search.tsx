@@ -1,5 +1,5 @@
 import { Box, Typography, Grow } from '@mui/material'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { SongCard } from '../shared/components'
 import { useGetSongsBySearchQuery } from '../shared/redux/services/shazamCore'
 
@@ -7,6 +7,8 @@ export const Search = () => {
   const { searchTerm } = useParams()
 
   const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm)
+
+  const navigate = useNavigate()
 
   if (isFetching) return <p>Carregando...</p>
 
@@ -25,7 +27,7 @@ export const Search = () => {
           flexWrap="wrap"
         >
           {data?.tracks?.hits.map(({ track: song }, key) => (
-            <SongCard key={key} song={song} />
+            <SongCard key={key} song={song} navigate={navigate} />
           ))}
         </Box>
       </Grow>

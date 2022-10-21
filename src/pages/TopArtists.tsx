@@ -1,8 +1,8 @@
 import { Box, Typography, Grow } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { ArtistCard } from '../shared/components/ArtistCard'
-import { IMusic } from '../shared/redux/models/IMusic'
+
 import { useGetTopChartsQuery } from '../shared/redux/services/shazamCore'
+import { ArtistCard } from '../shared/components/ArtistCard'
 
 export const TopArtists = () => {
   const navigate = useNavigate()
@@ -12,10 +12,6 @@ export const TopArtists = () => {
   if (isFetching) return <p>Carregando...</p>
 
   if (error) return <p>Oops! Ocorreu algum erro...</p>
-
-  const handleNavigate = (song: IMusic) => {
-    navigate(`/artists/${song.artists[0].adamid}`)
-  }
 
   return (
     <Box>
@@ -30,11 +26,7 @@ export const TopArtists = () => {
           flexWrap="wrap"
         >
           {data?.map(song => (
-            <ArtistCard
-              key={song.key}
-              song={song}
-              handleNavigate={handleNavigate}
-            />
+            <ArtistCard key={song.key} song={song} navigate={navigate} />
           ))}
         </Box>
       </Grow>

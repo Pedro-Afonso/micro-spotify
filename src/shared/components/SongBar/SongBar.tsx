@@ -5,9 +5,16 @@ import { PlayPauseCard } from '../PlayPauseButton'
 interface ISongBarProps {
   position: number
   song: IMusic
+  navigate: (value: string) => void
 }
 
-export const SongBar: React.FC<ISongBarProps> = ({ song, position }) => {
+export const SongBar: React.FC<ISongBarProps> = ({
+  song,
+  position,
+  navigate
+}) => {
+  if (!song?.images?.coverart) return <></>
+
   return (
     <Card>
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -17,15 +24,25 @@ export const SongBar: React.FC<ISongBarProps> = ({ song, position }) => {
             <CardMedia
               component="img"
               height="48"
-              image={song.images.coverart}
-              alt={song.title}
+              image={song?.images?.coverart}
+              alt={song?.title}
             />
           </Box>
           <Box marginLeft={1}>
-            <Typography variant="h3" fontSize="1rem">
-              {song.title}
+            <Typography
+              variant="h3"
+              fontSize="1rem"
+              sx={{ cursor: 'pointer' }}
+              onClick={() => navigate(`/songs/${song?.key}`)}
+            >
+              {song?.title}
             </Typography>
-            <Typography>{song.subtitle}</Typography>
+            <Typography
+              sx={{ cursor: 'pointer' }}
+              onClick={() => navigate(`/artists/${song.artists[0].adamid}`)}
+            >
+              {song?.subtitle}
+            </Typography>
           </Box>
         </Box>
 

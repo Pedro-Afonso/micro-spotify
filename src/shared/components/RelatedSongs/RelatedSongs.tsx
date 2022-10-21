@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { IMusic } from '../../redux/models/IMusic'
 import { SongBar } from '../SongBar'
 
@@ -7,6 +8,8 @@ interface IRelatedSongsProps {
 }
 
 export const RelatedSongs: React.FC<IRelatedSongsProps> = ({ data }) => {
+  const navigate = useNavigate()
+
   return (
     <Box>
       <Box>
@@ -16,7 +19,12 @@ export const RelatedSongs: React.FC<IRelatedSongsProps> = ({ data }) => {
         {data
           ?.filter(song => !!song.hub.actions)
           .map((song, key) => (
-            <SongBar key={song.key} position={key} song={song} />
+            <SongBar
+              key={song.key}
+              position={key}
+              song={song}
+              navigate={navigate}
+            />
           ))}
       </Box>
     </Box>
