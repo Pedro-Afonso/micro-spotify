@@ -16,7 +16,8 @@ describe('SongBar component', () => {
       subtitle: 'José',
       title: 'Super'
     } as IMusic,
-    position: 1
+    position: 1,
+    navigate: vi.fn()
   }
 
   it('should render an image element with alt and src attributes', () => {

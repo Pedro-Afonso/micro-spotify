@@ -10,14 +10,17 @@ vi.mock('../PlayPauseButton', () => ({
 }))
 
 describe('SongCard component', () => {
-  const song = {
-    title: 'Teste do José',
-    images: { coverart: '/' },
-    subtitle: 'José'
-  } as IMusic
+  const props = {
+    song: {
+      title: 'Teste do José',
+      images: { coverart: '/' },
+      subtitle: 'José'
+    } as IMusic,
+    navigate: vi.fn()
+  }
 
   it('should render with PlayPauseCard component', () => {
-    render(<SongCard song={song} />)
+    render(<SongCard {...props} />)
 
     const PlayPauseCard = screen.getByTestId('PlayPauseCard')
 
@@ -25,27 +28,27 @@ describe('SongCard component', () => {
   })
 
   it('should render an image element with alt and src attributes', () => {
-    render(<SongCard song={song} />)
+    render(<SongCard {...props} />)
 
     const img = screen.getByRole('img')
 
-    expect(img).toHaveAttribute('src', song.images.coverart)
-    expect(img).toHaveAttribute('alt', song.title)
+    expect(img).toHaveAttribute('src', props.song.images.coverart)
+    expect(img).toHaveAttribute('alt', props.song.title)
   })
 
   it('should render the component with title element', () => {
-    render(<SongCard song={song} />)
+    render(<SongCard {...props} />)
 
     const title = screen.getByRole('heading', { level: 3 })
 
-    expect(title).toHaveTextContent(song.title)
+    expect(title).toHaveTextContent(props.song.title)
   })
 
   it('should render the component with subtitle element', () => {
-    render(<SongCard song={song} />)
+    render(<SongCard {...props} />)
 
     const subtitle = screen.getByRole('heading', { level: 4 })
 
-    expect(subtitle).toHaveTextContent(song.subtitle)
+    expect(subtitle).toHaveTextContent(props.song.subtitle)
   })
 })
