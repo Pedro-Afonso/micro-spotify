@@ -20,6 +20,7 @@ export const ArtistCard: React.FC<IArtistCardProps> = ({ song, navigate }) => {
       }}
     >
       <CardActionArea
+        aria-label="Detalhes do Artista"
         onClick={() => navigate(`/artists/${song.artists[0].adamid}`)}
       >
         <CardMedia
