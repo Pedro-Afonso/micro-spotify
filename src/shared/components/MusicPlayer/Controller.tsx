@@ -15,7 +15,7 @@ export const Controller: React.FC<IControllerProps> = ({
 }) => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center">
-      <IconButton aria-label="previous song">
+      <IconButton aria-label="previous song" disabled>
         <FastRewindRounded fontSize="medium" />
       </IconButton>
 
@@ -29,7 +29,7 @@ export const Controller: React.FC<IControllerProps> = ({
           <PlayArrowRounded sx={{ fontSize: '2rem' }} />
         )}
       </IconButton>
-      <IconButton aria-label="next song">
+      <IconButton aria-label="next song" disabled>
         <FastForwardRounded fontSize="medium" />
       </IconButton>
     </Box>
