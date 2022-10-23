@@ -17,7 +17,7 @@ export const Search = () => {
   return (
     <Box>
       <Box>
-        <Typography variant="h2">Descobrir</Typography>
+        <Typography variant="h2">{`Buscar por ${searchTerm || ''}`}</Typography>
       </Box>
       <Grow in={!!data?.tracks} timeout={2000}>
         <Box
