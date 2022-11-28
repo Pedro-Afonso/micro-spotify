@@ -5,7 +5,7 @@ import { AppRoutes } from './routes/AppRoutes'
 
 import { store } from './shared/redux/store'
 import { Provider } from 'react-redux'
-import { CssBaseline } from '@mui/material'
+import { CssBaseline, Grid } from '@mui/material'
 import { TopPlay } from './shared/components/TopPlay/TopPlay'
 import { AppThemeProvider } from './shared/context/ThemeContext'
 
@@ -17,13 +17,44 @@ export const App = () => {
         <Provider store={store}>
           <AppSidebarProvider>
             <Sidebar>
-              <MusicPlayer>
-                <SearchBar>
-                  <TopPlay>
-                    <AppRoutes />
-                  </TopPlay>
-                </SearchBar>
-              </MusicPlayer>
+              {/* Responsive Layout */}
+              <Grid container>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  lg={8}
+                  order={{ xs: 1, lg: 1 }}
+                >
+                  <SearchBar />
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  lg={8}
+                  order={{ xs: 3, lg: 2 }}
+                >
+                  {/* Current page */}
+                  <AppRoutes />
+                  {/* /Current page */}
+                </Grid>
+                <Grid
+                  item
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  lg={4}
+                  order={{ xs: 2, lg: 3 }}
+                >
+                  <TopPlay />
+                </Grid>
+              </Grid>
+              {/* /Responsive Layout */}
+
+              <MusicPlayer />
             </Sidebar>
           </AppSidebarProvider>
         </Provider>

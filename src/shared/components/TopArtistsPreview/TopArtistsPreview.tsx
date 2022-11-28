@@ -33,15 +33,15 @@ export const TopArtistsPreview: React.FC<ITopArtistsPreviewProps> = ({
           justifyContent="center"
           alignItems="center"
           paddingX={2}
-          gap={4}
+          gap={1}
         >
           {data.slice(0, length).map(song => (
             <Avatar
               component={Link}
               to={`/artists/${song.artists[0].adamid}`}
               sx={[
-                { width: '4rem', height: '4rem' },
-                smUp && { width: '6rem', height: '6rem' }
+                { width: '3rem', height: '3rem' },
+                smUp && { width: '4rem', height: '4rem' }
               ]}
               key={song.key}
               src={song.images.background}

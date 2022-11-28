@@ -87,11 +87,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
           </Box>
         </Box>
       </Drawer>
-      <Box
-        height="100vh"
-        paddingX="1rem"
-        marginLeft={mdDown ? 0 : theme.spacing(28)}
-      >
+      <Box height="100vh" marginLeft={mdDown ? 0 : theme.spacing(28)}>
         {children}
       </Box>
     </>
