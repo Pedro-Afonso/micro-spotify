@@ -4,8 +4,7 @@ import {
   InputBase,
   useMediaQuery,
   Theme,
-  Box,
-  useTheme
+  Box
 } from '@mui/material'
 import Menu from '@mui/icons-material/Menu'
 import Search from '@mui/icons-material/Search'
@@ -13,19 +12,12 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSidebarContext } from '../../context/SidebarContext'
 
-interface ISearchBarProps {
-  children: React.ReactNode
-}
-
-export const SearchBar: React.FC<ISearchBarProps> = ({ children }) => {
+export const SearchBar = () => {
   const navigate = useNavigate()
   const [error, setError] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
 
-  const theme = useTheme()
-
   const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
-  const lgDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'))
 
   const { toggleSidebar } = useSidebarContext()
 
@@ -39,7 +31,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ children }) => {
 
   return (
     <>
-      <Box marginRight={lgDown ? 'auto' : theme.spacing(50)}>
+      <Box>
         <Paper
           component="form"
           sx={{
@@ -86,7 +78,7 @@ export const SearchBar: React.FC<ISearchBarProps> = ({ children }) => {
           )}
         </Paper>
       </Box>
-      <Box marginRight={lgDown ? 'auto' : theme.spacing(50)}>{children}</Box>
+      {/* <Box marginRight={lgDown ? 'auto' : theme.spacing(50)}>{children}</Box> */}
     </>
   )
 }

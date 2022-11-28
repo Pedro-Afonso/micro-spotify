@@ -9,11 +9,7 @@ import { Seekbar } from './Seekbar'
 import { Track } from './Track'
 import { VolumeBar } from './VolumeBar'
 
-interface IMusicPlayerProps {
-  children: React.ReactNode
-}
-
-export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
+export const MusicPlayer = () => {
   const { activeSong, isPlaying } = useAppSelector(state => state.player)
   const dispatch = useAppDispatch()
 
@@ -32,7 +28,6 @@ export const MusicPlayer: React.FC<IMusicPlayerProps> = ({ children }) => {
 
   return (
     <>
-      <Box paddingBottom={theme.spacing(14)}>{children}</Box>
       <Box
         display="flex"
         justifyContent="space-between"
