@@ -1,7 +1,13 @@
 import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { IMusic } from '../../redux/models/IMusic'
 import { Track } from './Track'
+
+vi.mock('../../redux/store', () => ({
+  useAppSelector: () => {
+    return true
+  }
+}))
 
 describe('Track component', () => {
   const props = {
