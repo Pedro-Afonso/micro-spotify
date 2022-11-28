@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { Box, Paper, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Paper, Slide, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
 import { playPause } from '../../redux/slices/playerSlice'
 import { useAppDispatch, useAppSelector } from '../../redux/store'
@@ -28,42 +28,52 @@ export const MusicPlayer = () => {
 
   return (
     <>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        paddingX={4}
-        component={Paper}
-        position="fixed"
-        bottom={0}
-        left={{ xs: 0, md: theme.spacing(28) }}
-        right={0}
-        height={theme.spacing(14)}
-      >
-        <Track activeSong={activeSong} />
-        <Box display="flex" flexDirection="column" alignItems="center" flex={2}>
-          <Controller handlePlayPause={handlePlayPause} isPlaying={isPlaying} />
-          <Player
-            volume={volume}
-            activeSong={activeSong}
-            isPlaying={isPlaying}
-            seekTime={seekTime}
-            repeat={repeat}
-            onEnded={() => {}}
-            onTimeUpdate={e => setAppTime(e.currentTarget.currentTime)}
-            onLoadedData={e => setDuration(e.currentTarget.duration)}
-          />
-          <Seekbar
-            max={duration}
-            min={0}
-            value={appTime}
-            setSeekTime={setSeekTime}
-          />
+      <Slide direction="up" in={!!activeSong} mountOnEnter unmountOnExit>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          paddingX={4}
+          component={Paper}
+          position="fixed"
+          bottom={0}
+          left={{ xs: 0, md: theme.spacing(28) }}
+          right={0}
+          height={theme.spacing(14)}
+        >
+          <Track activeSong={activeSong} />
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            flex={2}
+          >
+            <Controller
+              handlePlayPause={handlePlayPause}
+              isPlaying={isPlaying}
+            />
+            <Player
+              volume={volume}
+              activeSong={activeSong}
+              isPlaying={isPlaying}
+              seekTime={seekTime}
+              repeat={repeat}
+              onEnded={() => {}}
+              onTimeUpdate={e => setAppTime(e.currentTarget.currentTime)}
+              onLoadedData={e => setDuration(e.currentTarget.duration)}
+            />
+            <Seekbar
+              max={duration}
+              min={0}
+              value={appTime}
+              setSeekTime={setSeekTime}
+            />
+          </Box>
+          {smUp && (
+            <VolumeBar setVolume={setVolume} value={volume} max={1} min={0} />
+          )}
         </Box>
-        {smUp && (
-          <VolumeBar setVolume={setVolume} value={volume} max={1} min={0} />
-        )}
-      </Box>
+      </Slide>
     </>
   )
 }
