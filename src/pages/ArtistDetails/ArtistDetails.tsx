@@ -1,7 +1,7 @@
 import { Box, Typography, Grow } from '@mui/material'
 import { useParams } from 'react-router-dom'
-import { DetailsHeader, Discography } from '../shared/components'
-import { useGetArtistDetailsQuery } from '../shared/redux/services/shazamCore'
+import { DetailsHeader, Discography } from '../../shared/components'
+import { useGetArtistDetailsQuery } from '../../shared/redux/services/shazamCore'
 
 export const ArtistDetails = () => {
   const { artistid } = useParams()

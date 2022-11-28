@@ -6,12 +6,12 @@ import {
   Select,
   MenuItem
 } from '@mui/material'
-import { useGetSongsByGenreQuery } from '../shared/redux/services/shazamCore'
-import { useAppDispatch, useAppSelector } from '../shared/redux/store'
-import { setGenreListId } from '../shared/redux/slices/playerSlice'
-import { TGenre } from '../shared/redux/models/TGenre'
-import { SongCard } from '../shared/components'
-import { genres } from '../shared/constants'
+import { useGetSongsByGenreQuery } from '../../shared/redux/services/shazamCore'
+import { useAppDispatch, useAppSelector } from '../../shared/redux/store'
+import { setGenreListId } from '../../shared/redux/slices/playerSlice'
+import { TGenre } from '../../shared/redux/models/TGenre'
+import { SongCard } from '../../shared/components'
+import { genres } from '../../shared/constants'
 import { useNavigate } from 'react-router-dom'
 
 export const Discover = () => {
