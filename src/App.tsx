@@ -6,7 +6,7 @@ import { AppRoutes } from './routes/AppRoutes'
 import { store } from './shared/redux/store'
 import { Provider } from 'react-redux'
 import { CssBaseline, Grid } from '@mui/material'
-import { TopPlay } from './shared/components/TopPlay/TopPlay'
+import { TopPlay } from './shared/components/TopPlay'
 import { AppThemeProvider } from './shared/context/ThemeContext'
 
 export const App = () => {

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 import { IMusic } from '../../redux/models/IMusic'
-import { ArtistCard } from './ArtistCard'
+import { ArtistCard } from '.'
 
 describe('ArtistCard component', () => {
   const props = {
