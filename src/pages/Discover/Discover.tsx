@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Typography,
@@ -6,13 +7,13 @@ import {
   Select,
   MenuItem
 } from '@mui/material'
-import { useGetSongsByGenreQuery } from '../../shared/redux/services/shazamCore'
-import { useAppDispatch, useAppSelector } from '../../shared/redux/store'
-import { setGenreListId } from '../../shared/redux/slices/playerSlice'
-import { TGenre } from '../../shared/redux/models/TGenre'
-import { SongCard } from '../../shared/components'
-import { genres } from '../../shared/constants'
-import { useNavigate } from 'react-router-dom'
+
+import { useAppDispatch, useAppSelector } from '@/config/store'
+import { setGenreListId } from '@/slices/playerSlice'
+import { useGetSongsByGenreQuery } from '@/services'
+import { SongCard } from '@/components'
+import { genres } from '@/constants'
+import { TGenre } from '@/types'
 
 export const Discover = () => {
   const genreOpt = useAppSelector(state => state.player.genreListId)

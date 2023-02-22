@@ -1,6 +1,7 @@
 import { Avatar, Box, Typography } from '@mui/material'
-import { IMusic } from '../../redux/models/IMusic'
-import { useAppSelector } from '../../redux/store'
+
+import { useAppSelector } from '@/config/store'
+import { IMusic } from '@/types'
 
 interface ITrackProps {
   activeSong: IMusic | null

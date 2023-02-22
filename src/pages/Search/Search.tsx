@@ -1,7 +1,8 @@
-import { Box, Typography, Grow } from '@mui/material'
 import { useNavigate, useParams } from 'react-router-dom'
-import { SongCard } from '../../shared/components'
-import { useGetSongsBySearchQuery } from '../../shared/redux/services/shazamCore'
+import { Box, Typography, Grow } from '@mui/material'
+
+import { useGetSongsBySearchQuery } from '@/services'
+import { SongCard } from '@/components'
 
 export const Search = () => {
   const { searchTerm } = useParams()

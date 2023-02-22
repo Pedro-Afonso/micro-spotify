@@ -1,8 +1,8 @@
 import { Box, Typography, Grow } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-import { useGetTopChartsQuery } from '../../shared/redux/services/shazamCore'
-import { ArtistCard } from '../../shared/components/ArtistCard'
+import { useGetTopChartsQuery } from '@/services'
+import { ArtistCard } from '@/components'
 
 export const TopArtists = () => {
   const navigate = useNavigate()

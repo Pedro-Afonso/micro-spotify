@@ -1,6 +1,6 @@
-import VolumeUp from '@mui/icons-material/VolumeUp'
-import VolumeDown from '@mui/icons-material/VolumeDown'
 import { Box, Stack, Slider, IconButton } from '@mui/material'
+import VolumeDown from '@mui/icons-material/VolumeDown'
+import VolumeUp from '@mui/icons-material/VolumeUp'
 
 interface IVolumeBarProps {
   value: number

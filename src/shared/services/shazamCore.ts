@@ -1,10 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { TCountry } from '../models/TCountry'
-import { IArtistDetails } from '../models/IArtistDetails'
-import { IMusic } from '../models/IMusic'
-import { IMusicDetails } from '../models/IMusicDetails'
-import { ISearch } from '../models/ISearch'
-import { TGenre } from '../models/TGenre'
+
+import {
+  TCountry,
+  IMusic,
+  IArtistDetails,
+  IMusicDetails,
+  ISearch,
+  TGenre
+} from '@/types'
 
 export const shazamCoreApi = createApi({
   reducerPath: 'shazamCoreApi',

@@ -1,5 +1,6 @@
 import { Box, Card, Typography, CardMedia } from '@mui/material'
-import { IMusic } from '../../redux/models/IMusic'
+import { IMusic } from '@/types'
+
 import { PlayPauseCard } from '../PlayPauseButton'
 
 interface ISongBarProps {

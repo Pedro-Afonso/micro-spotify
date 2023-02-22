@@ -1,5 +1,5 @@
 import { Box, Typography, Card, CardMedia } from '@mui/material'
-import { IArtistDetails, Song } from '../../redux/models/IArtistDetails'
+import { IArtistDetails, Song } from '@/types'
 
 interface ISongBarProps {
   position: number

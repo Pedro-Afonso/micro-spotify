@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IMusic } from '../models/IMusic'
-import { TGenre } from '../models/TGenre'
+import { IMusic } from '../types/IMusic'
+import { TGenre } from '../types/TGenre'
 
 interface IPlayerState {
   currentSongs: IMusic[]

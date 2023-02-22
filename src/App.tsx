@@ -1,13 +1,12 @@
-import { AppSidebarProvider } from './shared/context/SidebarContext'
-import { Sidebar, MusicPlayer, SearchBar } from './shared/components'
+import { CssBaseline, Grid } from '@mui/material'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+
 import { AppRoutes } from './routes/AppRoutes'
 
-import { store } from './shared/redux/store'
-import { Provider } from 'react-redux'
-import { CssBaseline, Grid } from '@mui/material'
-import { TopPlay } from './shared/components/TopPlay'
-import { AppThemeProvider } from './shared/context/ThemeContext'
+import { Sidebar, MusicPlayer, SearchBar, TopPlay } from '@/components'
+import { AppThemeProvider, AppSidebarProvider } from '@/contexts'
+import { store } from '@/config/store'
 
 export const App = () => {
   return (

@@ -6,8 +6,9 @@ import {
   Box,
   CardActionArea
 } from '@mui/material'
-import { IMusic } from '../../redux/models/IMusic'
+
 import { PlayPauseCard } from '../PlayPauseButton'
+import { IMusic } from '@/types'
 
 interface ISongCardProps {
   song: IMusic

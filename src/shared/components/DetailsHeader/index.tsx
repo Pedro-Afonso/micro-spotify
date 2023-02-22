@@ -1,7 +1,7 @@
 import { Avatar, Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { IArtistDetails } from '../../redux/models/IArtistDetails'
-import { IMusicDetails } from '../../redux/models/IMusicDetails'
+
+import { IArtistDetails, IMusicDetails } from '@/types'
 
 interface IDetailsHeaderProps {
   artistid?: string

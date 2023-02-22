@@ -1,4 +1,5 @@
 export * from './MusicPlayer'
+export * from './ArtistCard'
 export * from './Sidebar'
 export * from './DetailsHeader'
 export * from './PlayPauseButton'

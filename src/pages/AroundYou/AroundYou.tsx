@@ -1,8 +1,8 @@
 import { Box, Grow, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
-import { useGetSongByCountryQuery } from '../../shared/redux/services/shazamCore'
-import { SongCard } from '../../shared/components'
+import { useGetSongByCountryQuery } from '@/services'
+import { SongCard } from '@/components'
 
 export const AroundYou = () => {
   const { isFetching, error, data } = useGetSongByCountryQuery('PT')

@@ -1,6 +1,6 @@
 import { Card, CardMedia, CardActionArea, Typography, Box } from '@mui/material'
 
-import { IMusic } from '../../redux/models/IMusic'
+import { IMusic } from '@/types'
 
 interface IArtistCardProps {
   song: IMusic

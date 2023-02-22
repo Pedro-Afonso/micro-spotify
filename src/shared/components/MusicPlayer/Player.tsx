@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 /* import audioTrack from '../../../assets/sick_love.mp3' */
-import { IMusic } from '../../redux/models/IMusic'
+import { IMusic } from '@/types'
 
 interface IPlayerProps {
   activeSong: IMusic | null

@@ -1,6 +1,7 @@
 import { Avatar, Box, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { IMusic } from '../../redux/models/IMusic'
+
+import { IMusic } from '@/types'
 
 interface ITopArtistsPreviewProps {
   data: IMusic[]

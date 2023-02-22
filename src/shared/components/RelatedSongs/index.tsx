@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { IMusic } from '../../redux/models/IMusic'
+
 import { SongBar } from '../SongBar'
+import { IMusic } from '@/types'
 
 interface IRelatedSongsProps {
   data?: IMusic[]

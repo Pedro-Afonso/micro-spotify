@@ -1,7 +1,8 @@
 import { Box } from '@mui/material'
-import { useGetTopChartsQuery } from '../../redux/services/shazamCore'
+
 import { TopArtistsPreview } from '../TopArtistsPreview'
 import { TopChartsPreview } from '../TopChartsPreview'
+import { useGetTopChartsQuery } from '@/services'
 
 export const TopPlay = () => {
   const { data, isFetching, error } = useGetTopChartsQuery()

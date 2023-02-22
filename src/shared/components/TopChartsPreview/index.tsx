@@ -1,7 +1,8 @@
-import { Box, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
-import { IMusic } from '../../redux/models/IMusic'
+import { Box, Typography } from '@mui/material'
+
 import { SongBar } from '../SongBar'
+import { IMusic } from '@/types'
 
 interface ITopChartsPreviewProps {
   data: IMusic[]

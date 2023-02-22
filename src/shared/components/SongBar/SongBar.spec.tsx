@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
-import { IMusic } from '../../redux/models/IMusic'
+import { IMusic } from '../../types/IMusic'
 import { SongBar } from './SongBar'
 
 vi.mock('../PlayPauseButton', () => ({

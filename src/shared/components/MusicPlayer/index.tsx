@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Box, Paper, Slide, useMediaQuery, useTheme } from '@mui/material'
 import { useState } from 'react'
-import { playPause } from '../../redux/slices/playerSlice'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+
+import { useAppDispatch, useAppSelector } from '@/config/store'
+import { playPause } from '@/slices/playerSlice'
+
 import { Controller } from './Controller'
-import { Player } from './Player'
-import { Seekbar } from './Seekbar'
-import { Track } from './Track'
 import { VolumeBar } from './VolumeBar'
+import { Seekbar } from './Seekbar'
+import { Player } from './Player'
+import { Track } from './Track'
 
 export const MusicPlayer = () => {
   const { activeSong, isPlaying } = useAppSelector(state => state.player)

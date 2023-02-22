@@ -1,3 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+
+import Search from '@mui/icons-material/Search'
+import Menu from '@mui/icons-material/Menu'
 import {
   Paper,
   IconButton,
@@ -6,11 +11,8 @@ import {
   Theme,
   Box
 } from '@mui/material'
-import Menu from '@mui/icons-material/Menu'
-import Search from '@mui/icons-material/Search'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSidebarContext } from '../../context/SidebarContext'
+
+import { useSidebarContext } from '@/contexts'
 
 export const SearchBar = () => {
   const navigate = useNavigate()

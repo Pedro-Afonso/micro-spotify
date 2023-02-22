@@ -1,0 +1,6 @@
+export * from './IArtistDetails'
+export * from './IMusic'
+export * from './IMusicDetails'
+export * from './ISearch'
+export * from './TCountry'
+export * from './TGenre'

@@ -1,9 +1,10 @@
-import PauseRounded from '@mui/icons-material/PauseRounded'
 import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded'
+import PauseRounded from '@mui/icons-material/PauseRounded'
 import { IconButton } from '@mui/material'
-import { IMusic } from '../../redux/models/IMusic'
-import { playPause, setActiveSong } from '../../redux/slices/playerSlice'
-import { useAppDispatch, useAppSelector } from '../../redux/store'
+
+import { playPause, setActiveSong } from '@/slices/playerSlice'
+import { useAppDispatch, useAppSelector } from '@/config/store'
+import { IMusic } from '@/types'
 
 interface IPlayPauseCardProps {
   song: IMusic

@@ -1,7 +1,8 @@
 import { Box, Typography, Grow } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { SongCard } from '../../shared/components'
-import { useGetTopChartsQuery } from '../../shared/redux/services/shazamCore'
+
+import { useGetTopChartsQuery } from '@/services'
+import { SongCard } from '@/components'
 
 export const TopCharts = () => {
   const { data, isFetching, error } = useGetTopChartsQuery()

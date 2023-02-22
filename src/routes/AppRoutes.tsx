@@ -9,7 +9,7 @@ import {
   TopArtists
 } from '../pages'
 import { Search } from '../pages/Search'
-import { useSidebarContext } from '../shared/context/SidebarContext'
+import { useSidebarContext } from '../shared/contexts/SidebarContext'
 
 export const AppRoutes = () => {
   const { setSidebarOptions } = useSidebarContext()

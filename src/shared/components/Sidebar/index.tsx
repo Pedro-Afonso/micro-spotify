@@ -1,3 +1,4 @@
+import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
 import {
   Box,
   Divider,
@@ -10,8 +11,8 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material'
-import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
-import { useSidebarContext } from '../../context/SidebarContext'
+
+import { useSidebarContext } from '@/contexts'
 
 interface IListItemLinkProps {
   to: string

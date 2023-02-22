@@ -1,8 +1,8 @@
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux'
-
-import { shazamCoreApi } from './services/shazamCore'
 import { configureStore } from '@reduxjs/toolkit'
-import playerReducer from './slices/playerSlice'
+
+import playerReducer from '@/slices/playerSlice'
+import { shazamCoreApi } from '@/services'
 
 export const store = configureStore({
   reducer: {
